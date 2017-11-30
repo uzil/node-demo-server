@@ -1,0 +1,40 @@
+{
+  "name": "node-sample-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "nyc --reporter=html mocha test/**/*.test.js && nyc report --reporter=text-summary"
+  },
+  "author": "Ujjwal <ujjwal25993@live.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uzil/node-demo-server.git"
+},
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
+    "cartilage": "^1.0.2",
+    "express": "^4.16.2",
+    "glob": "^7.1.2",
+    "joi": "^13.0.2",
+    "jsonpatch": "^3.0.1",
+    "jsonwebtoken": "^8.1.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "sharp": "^0.18.4",
+    "winston": "^2.4.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.12.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "mocha": "^4.0.1",
+    "nyc": "^11.3.0",
+    "sinon": "^4.1.2",
+    "supertest": "^3.0.0"
+  }
+}

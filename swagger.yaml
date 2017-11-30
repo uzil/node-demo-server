@@ -1,0 +1,95 @@
+swagger: '2.0'
+info:
+  title: Sample app
+  description: Sample app
+  version: "1.0.0"
+host: localhost:7000
+schemes:
+  - http
+basePath: /
+produces:
+  - application/json
+paths:
+  /login:
+    post:
+      summary: user login
+      parameters:
+        - name: values
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Login'
+      responses:
+        200:
+          description: successfully logged in
+          schema:
+            properties:
+              accessToken:
+                type: string
+        400:
+          description: ERROR
+          schema:
+            $ref: '#/definitions/Error'
+  /createjsonpatch:
+    post:
+      summary: patch a given json
+      parameters:
+        - name: values
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/JSONPatch'
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+        400:
+          description: ERROR
+          schema:
+            $ref: '#/definitions/Error'
+  /createthumbnail:
+    get:
+      summary: patch a given json
+      parameters:
+        - name: url
+          type: string
+          description: Image url
+          in: query
+          required: true
+      responses:
+        200:
+          description: OK
+        400:
+          description: ERROR
+          schema:
+            $ref: '#/definitions/Error'          
+        
+definitions:
+  Login:
+    type: object
+    required: ['username', 'password']
+    properties:
+      username:
+        type: string
+      password:
+        type: string
+  Patch:
+    type: object
+  JSONPatch:
+    type: object
+    required: ['json', 'patch']
+    properties:
+      json:
+        type: object
+      patch:
+        type: array
+        items:
+          $ref: '#/definitions/Patch'
+  Error:
+    type: object
+    properties:
+      name:
+        type: string
+      message:
+        type: string
